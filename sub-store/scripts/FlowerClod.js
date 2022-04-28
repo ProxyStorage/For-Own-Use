@@ -26,7 +26,7 @@ function operator(proxies, targetPlatForm) {
     } else if (targetPlatform === 'QX') {
       proxy.tfo = `${proxy.tfo || false}, tls-cert-sha256=${fingerprint}`
     }
-    return p
+    return proxy
   })
 }
 
