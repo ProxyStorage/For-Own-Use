@@ -6,6 +6,8 @@
 
 // 机场节点修饰前缀
 const prefix = '[Texon]'
+const fingerprint =
+  'e492977b86dd3af982ec3dea3874b8d5d3d1c37eaaf804af132512b8b23e2083'
 
 // 正则表达式
 const regex = {
@@ -23,10 +25,11 @@ const regex = {
  * @param {{name:string}[]} proxies
  * @returns
  */
-function operator(proxies) {
-  return proxies.map((p) => {
-    p.name = reName(p.name)
-    return p
+function operator(proxies, targetPlatform) {
+  return proxies.map((proxy) => {
+    proxy.name = reName(proxy.name)
+    proxy = addFingerprint(proxy, targetPlatform)
+    return proxy
   })
 }
 
@@ -56,4 +59,29 @@ function reName(name) {
     resultName = prefix + `${name}`
   }
   return resultName
+}
+/**
+ *
+ * @param {T} proxy
+ * @param {'Surge'|'QX'} targetPlatform 客户端类型
+ * @returns {T}
+ */
+function addFingerprint(proxy, targetPlatform) {
+  if (proxy.type === 'trojan') {
+    switch (targetPlatform) {
+      case 'Surge':
+        proxy.tfo = `${
+          proxy.tfo || false
+        }, server-cert-fingerprint-sha256=${fingerprint}`
+        console.log('当前客户端：Surge')
+        break
+      case 'QX':
+        proxy.tfo = `${proxy.tfo || false}, tls-cert-sha256=${fingerprint}`
+        console.log('当前客户端：QX')
+        break
+      default:
+        console.log('当前客户端：' + targetPlatform + '|未添加节点证书')
+    }
+  }
+  return proxy
 }
