@@ -6,27 +6,17 @@
 
 // 机场节点修饰前缀
 const prefix = '[Flower]'
-// trojan指纹
-const fingerprint =
-  '67:1B:C8:F2:D4:20:EE:A7:EE:60:DA:BB:A3:F9:A4:D7:C8:29:0F:3E:2F:75:B6:A9:46:88:48:7D:D3:97:7E:98'
 /**
  * 入口函数
  * @param {{name:string}[]} proxies
  * @returns
  */
-function operator(proxies, targetPlatForm) {
-  return proxies.map((proxy) => {
-    proxy.name = proxy.name.replace(' IEPL 中继 ', ' ')
-    proxy.name = replaceLocation(proxy.name)
-    proxy.name = prefix + proxy.name
-    if (targetPlatform === 'Surge') {
-      proxy.tfo = `${
-        proxy.tfo || false
-      }, server-cert-fingerprint-sha256=${fingerprint}`
-    } else if (targetPlatform === 'QX') {
-      proxy.tfo = `${proxy.tfo || false}, tls-cert-sha256=${fingerprint}`
-    }
-    return proxy
+function operator(proxies) {
+  return proxies.map((p) => {
+    p.name = p.name.replace(' IEPL 中继 ', ' ')
+    p.name = replaceLocation(p.name)
+    p.name = prefix + p.name
+    return p
   })
 }
 
