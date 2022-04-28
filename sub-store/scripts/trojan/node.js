@@ -1,5 +1,5 @@
 /**
- * 用于同步的脚本
+ * 为机场节点添加证书
  */
 const fingerprintMap = {
   // 键为脚本重命名后的名称
@@ -10,15 +10,17 @@ const fingerprintMap = {
 function operator(proxies, targetPlatform) {
   proxies.forEach((proxy) => {
     const proxyName = Object.keys(fingerprintMap)
-    if (proxyName.includes(proxy.name)) {
-      if (targetPlatform) {
-        if (targetPlatform === 'Surge') {
-          proxy.tfo = `${
-            proxy.tfo || false
-          }, server-cert-fingerprint-sha256=${fingerprint}`
-        } else if (targetPlatform === 'QX') {
-          proxy.tfo = `${proxy.tfo || false}, tls-cert-sha256=${fingerprint}`
-        }
+    if (proxy.type === 'trojan' && proxyName.includes(proxy.name)) {
+      if (targetPlatform === 'Surge') {
+        console.log('当前客户端：Surge')
+        proxy.tfo = `${
+          proxy.tfo || false
+        }, server-cert-fingerprint-sha256=${fingerprint}`
+      } else if (targetPlatform === 'QX') {
+        console.log('当前客户端：QX')
+        proxy.tfo = `${proxy.tfo || false}, tls-cert-sha256=${fingerprint}`
+      } else {
+        console.log('当前客户端：' + targetPlatform + '|为添加节点证书')
       }
     }
   })
