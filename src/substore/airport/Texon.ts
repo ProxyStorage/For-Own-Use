@@ -17,7 +17,7 @@ const texonFingerprint =
 // @ts-ignore
 function operator(proxies: Array<TrojanType>, targetPlatform) {
   return proxies.map((proxy) => {
-    proxy.name = `${texonPrefix}-${proxy.name}`
+    proxy.name = `${texonPrefix}${proxy.name}`
     proxy = addFingerprint(proxy, targetPlatform)
     return proxy
   })

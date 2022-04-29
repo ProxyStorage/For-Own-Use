@@ -13,7 +13,7 @@ const prprPrefix = '[prpr]'
 // @ts-ignore
 function operator(proxies: SSProxyType[]) {
   return proxies.map((proxy) => {
-    proxy.name = `${prprPrefix}-${proxy.name}`
+    proxy.name = `${prprPrefix}${proxy.name}`
     return proxy
   })
 }
