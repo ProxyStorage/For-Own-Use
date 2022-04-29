@@ -5,7 +5,7 @@
  */
 
 // 机场节点修饰前缀
-const mjPrefix = '[bit]'
+const mjPrefix = '[mojie]'
 
 /**
  * 入口函数
