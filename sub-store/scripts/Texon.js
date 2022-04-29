@@ -40,21 +40,20 @@ function operator(proxies, targetPlatform) {
  */
 function reName(name) {
   let resultName = name
-  const number = name.match(regex.number) ? name.match(regex.number)[0] : ''
   if (name.match(regex.hk)) {
-    resultName = prefix + `HK ${number}`
+    resultName = prefix + `HK}`
   } else if (name.match(regex.tw)) {
-    resultName = prefix + `TW ${number}`
+    resultName = prefix + `TW`
   } else if (name.match(regex.jp)) {
-    resultName = prefix + `JP ${number}`
+    resultName = prefix + `JP`
   } else if (name.match(regex.kr)) {
-    resultName = prefix + `KR ${number}`
+    resultName = prefix + `KR`
   } else if (name.match(regex.sg)) {
-    resultName = prefix + `SG ${number}`
+    resultName = prefix + `SG`
   } else if (name.match(regex.us)) {
-    resultName = prefix + `US ${number}`
+    resultName = prefix + `US`
   } else if (name.match(regex.special)) {
-    resultName = prefix + `special ${number}`
+    resultName = prefix + `special`
   } else {
     resultName = prefix + `${name}`
   }

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "target": "es5",
+    "lib": ["esnext", "DOM"],
+
+    "allowJs": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "outDir": "./dist",
+    "typeRoots": ["./type/**/*.d.ts"],
+    "removeComments": true
+  },
+  "outDir": "dist",
+
+  "include": ["./src/**/*", "./type/**/*"]
+}
