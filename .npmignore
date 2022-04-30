@@ -1,0 +1,8 @@
+.github
+node_modules
+src
+type
+.gitignore
+.npmignore
+pnpm-lock.yaml
+tsconfig.json

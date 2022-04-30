@@ -7,7 +7,7 @@
 const prprPrefix = '[prpr]'
 /**
  * 入口函数
- * @param {{name:string}[]} proxies
+ * @param {{SSProxyType[]}} proxies
  * @returns
  */
 // @ts-ignore

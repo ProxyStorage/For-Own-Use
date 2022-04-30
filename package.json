@@ -1,5 +1,5 @@
 {
-  "name": "my-scripts",
+  "name": "proxy-script",
   "scripts": {
     "build": "tsc"
   },

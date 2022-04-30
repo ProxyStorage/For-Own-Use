@@ -1,7 +1,7 @@
 /**
  * @description 用于重命名花云节点添加Trojan密钥和前缀
  * @Author DreamyTZK
- * @Date 2022-04-17
+ * @Date 2022-04-30
  */
 
 // 机场节点修饰前缀
@@ -31,7 +31,7 @@ function operator(proxies: TrojanType[], targetPlatform) {
  * @returns {T}
  */
 // @ts-ignore
-function addFingerprint(proxy: TrojanType, targetPlatform: 'Surge' | 'QX') {
+function addFingerprint(proxy: TrojanType, targetPlatform: TargetPlatType) {
   if (proxy.type === 'trojan') {
     switch (targetPlatform) {
       case 'Surge':

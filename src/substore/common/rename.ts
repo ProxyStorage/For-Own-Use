@@ -14,7 +14,7 @@ const regex = {
  * @returns {string}
  */
 // @ts-ignore
-function operator(proxies: BaseProxy[], targetPlatform) {
+function operator(proxies: BaseProxy[]) {
   return proxies.map((proxy) => {
     proxy.name = proxy.name.replace(regex.hk, 'HK')
     proxy.name = proxy.name.replace(regex.tw, 'TW')
