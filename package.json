@@ -3,6 +3,7 @@
   "scripts": {
     "build": "tsc"
   },
+  "version": "1.0.0",
   "devDependencies": {
     "typescript": "^4.6.4"
   }

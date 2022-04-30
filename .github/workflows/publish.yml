@@ -34,12 +34,10 @@ jobs:
           version: 6.0.2
           run_install: true
 
-      - name: Move File
-        run: |
-          mv dist substore
-
       - name: Build & Publish
         run: |
           pnpm run build
+          mv dist substore
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
