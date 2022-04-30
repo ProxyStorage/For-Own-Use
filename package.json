@@ -1,0 +1,9 @@
+{
+  "name": "proxy-script",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  }
+}

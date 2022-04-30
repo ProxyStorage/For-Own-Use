@@ -5,16 +5,17 @@
  */
 
 // 机场节点修饰前缀
-const prefix = '[bit]'
+const bitPrefix = '[bit]'
 
 /**
  * 入口函数
  * @param {{name:string}[]} proxies
  * @returns
  */
+// @ts-ignore
 function operator(proxies) {
   return proxies.map((p) => {
-    p.name = prefix + p.name
+    p.name = `${bitPrefix}${p.name}`
     return p
   })
 }
