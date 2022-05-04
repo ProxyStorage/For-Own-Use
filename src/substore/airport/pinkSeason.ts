@@ -13,8 +13,11 @@ const psPrefix = '[ps]'
  * @returns
  */
 // @ts-ignore
-function operator(proxies) {
+function operator(proxies: SSProxyType[]) {
   return proxies.map((p) => {
+    if (p.name.includes('蜜桃四季春')) {
+      p.name = `HK${p.name}`
+    }
     p.name = `${psPrefix}${p.name}`
     return p
   })
