@@ -7,7 +7,7 @@
 // 机场节点修饰前缀
 const texonPrefix = '[Texon]'
 const texonFingerprint =
-  'e492977b86dd3af982ec3dea3874b8d5d3d1c37eaaf804af132512b8b23e2083'
+  'db dc c2 2d 3a 60 a7 92 92 84 4c 72 6e 21 0e 30 49 d5 e2 58 ad 08 67 20 83 79 f6 f6 52 a9 f0 16'
 
 /**
  * 入口函数
