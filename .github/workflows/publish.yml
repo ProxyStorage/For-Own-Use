@@ -37,6 +37,7 @@ jobs:
           pnpm run build
           mv config dist
           mv package.json dist
+          cd dist
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
