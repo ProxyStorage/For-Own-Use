@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    // "strict": true,
     "noImplicitAny": false,
     "target": "es5",
     "lib": ["esnext", "DOM"],
@@ -12,7 +13,8 @@
     "module": "esnext",
     "outDir": "./dist",
     "typeRoots": ["./type/**/*.d.ts"],
-    "removeComments": true
+    "removeComments": true,
+    "downlevelIteration": true
   },
   "outDir": "dist",
 
