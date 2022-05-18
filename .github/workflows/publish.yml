@@ -35,7 +35,8 @@ jobs:
       - name: Build & Publish
         run: |
           pnpm run build
-          mv dist substore
+          mv config dist
+          mv package.json dist
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
