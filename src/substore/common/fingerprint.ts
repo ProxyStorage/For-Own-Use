@@ -1,14 +1,11 @@
 /**
- * @description 用于重命名花云节点添加Trojan密钥和前缀
- * @Author DreamyTZK
- * @Date 2022-04-30
+ * @description 为Trojan协议机场添加指纹，传入参数airport来指定键
+ * 键参考 utils/fingerprint.ts
  */
 
 // 机场节点修饰前缀
-const prefix = '[Flower]'
-const fingerprint =
-  '67:1B:C8:F2:D4:20:EE:A7:EE:60:DA:BB:A3:F9:A4:D7:C8:29:0F:3E:2F:75:B6:A9:46:88:48:7D:D3:97:7E:98'
 
+import fingerprint from '../utils/fingerprint'
 /**
  * 入口函数
  * @param {TrojanType[]} proxies
@@ -16,22 +13,26 @@ const fingerprint =
  */
 // @ts-ignore
 function operator(proxies: TrojanType[], targetPlatform) {
+  // @ts-ignore
+  const airpotName = $arguments['airport']
+  if (!fingerprint[airpotName]) return proxies
   return proxies.map((proxy) => {
-    proxy.name = proxy.name.replace(' IEPL 中继 ', ' ')
-    proxy.name = prefix + proxy.name
-    proxy = addFingerprint(proxy, targetPlatform)
+    proxy = addFingerprint(proxy, fingerprint[airpotName], targetPlatform)
     return proxy
   })
 }
-
 /**
  * 添加证书
  * @param {T} proxy
  * @param {'Surge'|'QX'} targetPlatform 客户端类型
+ * @param {string} fingerprint 证书
  * @returns {T}
  */
-// @ts-ignore
-function addFingerprint(proxy: TrojanType, targetPlatform: TargetPlatType) {
+export function addFingerprint(
+  proxy: TrojanType,
+  fingerprint: string,
+  targetPlatform: TargetPlatType
+) {
   if (proxy.type === 'trojan') {
     switch (targetPlatform) {
       case 'Surge':
