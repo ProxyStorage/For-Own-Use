@@ -27,7 +27,8 @@ export default {
   ], // 打包入口
   output: {
     dir: 'dist/substore/',
-    strict: false
+    strict: false,
+    exports: 'none'
   },
   treeshake: false,
   plugins
