@@ -4,7 +4,7 @@
     "build": "cross-env NODE_ENV=production rollup -c",
     "dev": "cross-env NODE_ENV=development rollup -c -w"
   },
-  "version": "2022.05.19-1",
+  "version": "2022.05.19-2",
   "devDependencies": {
     "cross-env": "^7.0.3",
     "rollup": "^2.73.0",
