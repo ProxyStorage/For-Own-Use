@@ -10,16 +10,16 @@ const plugins = [
   commonjs(), // 将 CommonJS 转换成 ES2015 模块供 Rollup 处理
   typescript() // 解析TypeScript
 ]
-// if (NODE_ENV === 'production') {
-//   plugins.push(
-//     terser({
-//       module: false,
-//       compress: {
-//         drop_console: true
-//       }
-//     })
-//   )
-// }
+if (NODE_ENV === 'production') {
+  plugins.push(
+    terser({
+      module: false,
+      compress: {
+        drop_console: true
+      }
+    })
+  )
+}
 export default {
   input: [
     'src/substore/common/rename.ts',
@@ -27,7 +27,8 @@ export default {
   ], // 打包入口
   output: {
     dir: 'dist/substore/',
-    strict: false
+    strict: false,
+    exports: 'none'
   },
   treeshake: false,
   plugins

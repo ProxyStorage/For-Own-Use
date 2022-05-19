@@ -28,7 +28,7 @@ function operator(proxies: TrojanType[], targetPlatform) {
  * @param {string} fingerprint 证书
  * @returns {T}
  */
-export function addFingerprint(
+function addFingerprint(
   proxy: TrojanType,
   fingerprint: string,
   targetPlatform: TargetPlatType
