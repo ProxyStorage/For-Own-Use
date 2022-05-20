@@ -1,5 +1,5 @@
 import { getNum, reName } from '../utils/index'
-import { location, modified } from '../utils/location'
+import { actionObject } from '../utils/location'
 /**
  * 节点重命名
  * @param {string} name 节点名称
@@ -9,15 +9,17 @@ import { location, modified } from '../utils/location'
 function operator(proxies: BaseProxy[]) {
   // 「」
   const counter = {}
+  const nameMap = {}
   // @ts-ignore
-  const airpotName = $arguments['airport']
-  return proxies.map((proxy, index) => {
+  const { airport } = $arguments
+
+  return proxies.filter((proxy, index) => {
     // 获取当前节点的编号
     let number = getNum(proxy.name)
-    const locationList = Object.entries(location)
-    const modifiedList = Object.entries(modified)
+
     // 根据地区正则重命名
-    const reResult = reName(proxy.name, locationList, modifiedList)
+    const reResult = reName(proxy.name, actionObject)
+    if (reResult.action === 'delete') return false
     if (!number) {
       if (counter[reResult.location]) {
         counter[reResult.location] += 1
@@ -26,14 +28,17 @@ function operator(proxies: BaseProxy[]) {
       }
       number = counter[reResult.location]
     }
+    const proxyName = `${reResult.flag}${
+      airport ? '「' + airport + '」' : ''
+    } ${reResult.location} ${reResult.modified} ${number}`
+    if (nameMap[proxyName]) {
+      nameMap[proxyName] += 1
+      proxy.name = proxyName + '_' + nameMap[proxyName]
+    } else {
+      nameMap[proxyName] = 1
+      proxy.name = proxyName
+    }
 
-    proxy.name =
-      (airpotName ? '「' + airpotName + '」' : '') +
-      reResult.location +
-      ' ' +
-      reResult.modified +
-      ' ' +
-      number
     return proxy
   })
 }

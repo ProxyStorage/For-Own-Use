@@ -1,3 +1,5 @@
+import { ActionObject } from './location'
+
 /**
  * 从末尾获取传入字符串的数字
  * @param str 查找的字符串
@@ -8,33 +10,42 @@ export function getNum(str: string) {
   return result ? result[0] : ''
 }
 
+interface ReanmeObject {
+  location: string
+  modified: string
+  action: 'rename' | 'delete'
+  flag?: string
+}
+
 /**
  * 根据地区正则重命名
  * @param str 需要替换的字符串
- * @param locationReg 地区正则表达式数组
+ * @param actionObject 重命名配置对象
  * @returns {{location:number,modified:number}} 返回地区和修饰的索引
  */
-export function reName(
-  str: string,
-  locationReg: [string, RegExp][],
-  modifiedReg?: [string, RegExp][]
-) {
-  const returnResult = {
+export function reName(str: string, actionObject: ActionObject) {
+  const returnResult: ReanmeObject = {
     location: str,
-    modified: ''
+    modified: '',
+    action: 'rename',
+    flag: ''
   }
-  for (let i = 0; i < locationReg.length; i++) {
-    if (locationReg[i][1].test(str)) {
-      returnResult.location = locationReg[i][0]
+  const { locationList, modifiedList } = actionObject
+  for (let i = 0; i < locationList.length; i++) {
+    const locationReg = new RegExp(locationList[i].reg, 'gi')
+    if (locationReg.test(str)) {
+      returnResult.location = locationList[i].custom || locationList[i].enFull
+      returnResult.flag = locationList[i].flag || ''
       break
     }
   }
-  if (modifiedReg && modifiedReg.length) {
-    for (let i = 0; i < modifiedReg.length; i++) {
-      if (modifiedReg[i][1].test(str)) {
-        returnResult.modified = modifiedReg[i][0]
-        break
-      }
+  for (let i = 0; i < modifiedList.length; i++) {
+    const modifiedReg = new RegExp(modifiedList[i].reg, 'gi')
+    if (modifiedReg.test(str)) {
+      returnResult.modified = modifiedList[i].enShort
+      returnResult.action = modifiedList[i].action
+
+      break
     }
   }
 
