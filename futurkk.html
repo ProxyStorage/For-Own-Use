@@ -60,7 +60,6 @@
     <script src="./index.js"></script>
     <script>
       const result = operator(JSON.parse(JSON.stringify(originList)))
-      console.log('result', result)
       const tableStr = generateTable(result, originList)
       $('.tbl-content tbody').html(tableStr)
     </script>
