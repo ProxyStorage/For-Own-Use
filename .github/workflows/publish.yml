@@ -32,9 +32,19 @@ jobs:
           version: 6.0.2
           run_install: true
 
-      - name: Build & Publish
+      - name: Build
         run: |
           pnpm run build
+
+      - name: pages
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          folder: html
+          clean: false
+
+      - name: Build
+        run: |
           mv config dist
           mv package.json dist
           cd dist
@@ -42,13 +52,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - name: 部署页面
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
+      - name: Delete workflow runs
+        uses: Mattraks/delete-workflow-runs@v2
         with:
-          branch: gh-pages
-          folder: html
-          clean: false
-          # clean-exclude: .nojekyll
-          #   .ssh
-          #   .git
-          # ssh-key: ${{ secrets.DEPLOY_KEY }}
+          retain_days: 0
+          keep_minimum_runs: 0
