@@ -1,6 +1,6 @@
 ## 说明
 
-此仓库用于存储我个人日常使用的代理工具（Surge、QuantumultX、Loon）配置以及相关涉及到的脚本和规则。
+[此仓库](https://github.com/ProxyStorage/For-Own-Use)用于存储我个人日常使用的代理工具（Surge、QuantumultX、Loon）配置以及相关涉及到的脚本和规则。
 
 其中配置与脚本无特殊说明均来自于其他大佬，这里不做一一列举（~~因为大多数已经找不到出处了~~）。
 
@@ -54,6 +54,51 @@
 ### Loon、QuantumultX
 
 部分机场在订阅时会显示流量剩余情况，但部分机场无显示。此时可以尝试使用机场的原始订阅。
+
+## Sub-Store脚本
+
+本仓库暂不考虑将产物放入仓库，因此此仓库的脚本需要到[jsdelivr](https://cdn.jsdelivr.net/npm/proxy-script/)或[unpkg](https://unpkg.com/browse/proxy-script/)等NPM镜像处查找
+
+### 节点重命名
+
+1. [rename](https://unpkg.com/proxy-script/substore/rename.js)
+
+   效果预览：[https://proxystorage.github.io/For-Own-Use/](https://proxystorage.github.io/For-Own-Use/)
+
+   <details> 
+       <summary>关于自定义</summary> 
+       <b>自定义需要有充足的JavaScript、TypeScript基础</b><br />
+       <b>自定义需要有充足的JavaScript、TypeScript基础</b><br />
+       <b>自定义需要有充足的JavaScript、TypeScript基础</b><br />
+       <p>此脚本默认只支持传入参数`airport`（非必填）,代表机场名称。</p>
+       <p>地区部分优先优先使用custom字段，如无custom字段则使用全称字段。</p>
+       <p>由于逻辑原因，无论是地区还是修饰匹配，均为匹配到一次则退出匹配。因此可能会出现由于顺序原因导致的不正确现象。</p>
+       <p>地区、修饰符等调整参考：`src/substore/utils/location.ts`</p>
+       <p>输出名称格式调整：`src/substore/common/rename.ts`</p>
+   </details>
+   
+   > 同类型脚本：[reanme.js](https://raw.githubusercontent.com/futurkk/Potato/main/Rename/rename.js)
+   >
+   > 效果预览：[https://proxystorage.github.io/For-Own-Use/futurkk.html](https://proxystorage.github.io/For-Own-Use/futurkk.html)
+   
+2. [fingerprint](https://unpkg.com/proxy-script/substore/fingerprint.js)
+
+   为节点添加指纹证书。内置支持的机场参考：[fingerprint.ts](https://github.com/ProxyStorage/For-Own-Use/blob/master/src/substore/utils/fingerprint.ts)。
+
+   脚本接受参数
+
+   |   参数    |  示例值  |                             说明                             |
+   | :-------: | :------: | :----------------------------------------------------------: |
+   | `airport` | `flower` | [fingerprint.ts](https://github.com/ProxyStorage/For-Own-Use/blob/master/src/substore/utils/fingerprint.ts)脚本中定义的键 |
+   | `custom`  | `xxxxx`  |         如果脚本中无内置证书，则传入此参数自定义证书         |
+
+   - 示例1：使用内置指纹（花云）
+
+     `https://unpkg.com/proxy-script/substore/fingerprint.js#airport=flower`
+
+   - 示例2：使用自定义指纹
+
+     `https://unpkg.com/proxy-script/substore/fingerprint.js#custom=bbc820c1848bab9d41457c1cdf0c0f7a1eed6e21f7ed5e67359b158cc7fe4cb4`
 
 ## 关于更新
 
