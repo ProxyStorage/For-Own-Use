@@ -55,7 +55,8 @@
         DreamyTZK
       </a>
     </div>
-    <script src="https://unpkg.com/proxy-script/substore/rename.js"></script>
+    <!-- <script src="https://unpkg.com/proxy-script/substore/rename.js"></script> -->
+    <script src="./dist/substore/rename.js"></script>
     <script src="./airport.js"></script>
     <script src="./index.js"></script>
     <script>
@@ -73,6 +74,8 @@
       const YtooResult = operator(ytooList)
       $arguments.airport = 'PrPr'
       const PrprResult = operator(prprList)
+      $arguments.airport = 'YiYuan'
+      const YiYuanResult = operator(yiyuanList)
       $arguments.airport = 'Test'
       const TestResult = operator(testList)
 
@@ -84,7 +87,8 @@
         ...MojieList,
         ...GLCResult,
         ...YtooResult,
-        ...PrprResult
+        ...PrprResult,
+        ...YiYuanResult
       ])
       $('.tbl-content tbody').html(tableStr)
     </script>
