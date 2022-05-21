@@ -14,10 +14,15 @@ import fingerprint from '../utils/fingerprint'
 // @ts-ignore
 function operator(proxies: TrojanType[], targetPlatform) {
   // @ts-ignore
-  const airpotName = $arguments['airport']
-  if (!fingerprint[airpotName]) return proxies
+  const { airport, custom } = $arguments
+  if (!fingerprint[airport] && !custom) return proxies
+
   return proxies.map((proxy) => {
-    proxy = addFingerprint(proxy, fingerprint[airpotName], targetPlatform)
+    proxy = addFingerprint(
+      proxy,
+      fingerprint[airport] || custom,
+      targetPlatform
+    )
     return proxy
   })
 }
@@ -33,7 +38,9 @@ function addFingerprint(
   fingerprint: string,
   targetPlatform: TargetPlatType
 ) {
-  if (proxy.type === 'trojan') {
+  if (proxy.type === 'trojan' && fingerprint && fingerprint !== 'undefined') {
+    console.log('当前指纹：' + fingerprint)
+
     switch (targetPlatform) {
       case 'Surge':
         proxy.tfo = `${
