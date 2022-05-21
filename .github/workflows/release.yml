@@ -36,17 +36,11 @@ jobs:
         run: |
           pnpm run build
 
-      - name: pages
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
-        with:
-          branch: gh-pages
-          folder: html
-          clean: false
-
       - name: Build
         run: |
           mv config dist
           mv package.json dist
+          mv readme.md dist
           cd dist
           npm publish
         env:
