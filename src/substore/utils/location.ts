@@ -490,7 +490,8 @@ const locationList: LocationList[] = [
     zh: '吉尔吉斯斯坦',
     enShort: 'KG',
     enFull: 'Kyrgyzstan',
-    reg: 'KG|Kyrgyzstan'
+    reg: 'KG|Kyrgyzstan',
+    flag: '🇰🇬'
   },
   { zh: '老挝', enShort: 'LA', enFull: 'Laos', reg: 'LA|Laos' },
   {
@@ -724,7 +725,8 @@ const locationList: LocationList[] = [
     zh: '沙特阿拉伯',
     enShort: 'SA',
     enFull: 'Saudi Arabia',
-    reg: 'SA|Saudi Arabia'
+    reg: 'SA|Saudi Arabia',
+    flag: '🇸🇦'
   },
   { zh: '塞内加尔', enShort: 'SN', enFull: 'Senegal', reg: 'SN|Senegal' },
   {

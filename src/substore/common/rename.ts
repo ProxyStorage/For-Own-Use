@@ -10,15 +10,23 @@ function operator(proxies: BaseProxy[]) {
   // 「」
   const counter = {}
   const nameMap = {}
-  let airport = ''
-  let test = false
-  // @ts-ignore
-  if ($arguments) {
+
+  /**
+   * airport 机场名
+   * test 是否是测试模式（用于浏览器环境）
+   * template 修改为节点名的模板 默认为 {flag}「{airport}」{location} {modified} {number} 即 国旗 +「机场名」 + 地区 + 修饰 + 编号
+   * location 地区输出的格式 默认为 使用custom字段（无此字段则使用enFull） ,可选参数 enShort,enFull,zh
+   * modified 修饰（标准、高级等）输出的格式 默认为 使用custom字段（无此字段则使用enShort） ,可选参数 enShort,enFull,zh
+   */
+  const {
+    airport = '',
+    test = false,
+    template = '{flag}「{airport}」{location} {modified} {number}',
+    location,
+    modified
     // @ts-ignore
-    airport = $arguments['airport']
-    // @ts-ignore
-    test = $arguments['test']
-  }
+  } = $arguments
+
   // 用于测试的数组节点
   const testResultList = []
   // 用于返回substore的节点
@@ -28,7 +36,7 @@ function operator(proxies: BaseProxy[]) {
     // 获取当前节点的编号
     let number = getNum(proxy.name)
     // 根据地区正则重命名
-    const reResult = reName(proxy.name, actionObject)
+    const reResult = reName(proxy.name, actionObject, location, modified)
     if (reResult.action === 'delete') {
       testResultList.push({ ...reResult, ...proxy })
       continue
@@ -42,7 +50,7 @@ function operator(proxies: BaseProxy[]) {
       number = counter[reResult.location]
     }
 
-    const proxyName = getProxyName(reResult, number, airport)
+    const proxyName = getProxyName(template, reResult, number, airport)
 
     if (nameMap[proxyName]) {
       nameMap[proxyName] += 1
@@ -70,13 +78,21 @@ function operator(proxies: BaseProxy[]) {
  * @returns {string}
  */
 function getProxyName(
+  proxyTemplate: string,
   reResult: ReanmeObject,
   number: string,
   airport?: string
 ) {
-  const flag = reResult.flag ? reResult.flag : ''
-  const airportName = airport ? '「' + airport + '」' : ''
-  const locationName = reResult.location
-  const modifiedName = reResult.modified
-  return `${flag}${airportName} ${locationName} ${modifiedName} ${number}`
+  const flag = reResult.flag || ''
+  const airportName = airport || ''
+  const locationName = reResult.location || ''
+  const modifiedName = reResult.modified || ''
+
+  proxyTemplate = proxyTemplate.replace(/\{airport\}/g, airportName)
+  proxyTemplate = proxyTemplate.replace(/\{flag\}/g, flag)
+  proxyTemplate = proxyTemplate.replace(/\{location\}/g, locationName)
+  proxyTemplate = proxyTemplate.replace(/\{modified\}/g, modifiedName)
+  proxyTemplate = proxyTemplate.replace(/\{number\}/g, number)
+  return proxyTemplate
+  // return `${flag}${airportName} ${locationName} ${modifiedName} ${number}`
 }

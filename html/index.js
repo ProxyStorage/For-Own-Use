@@ -39,7 +39,7 @@ function generateTable(proxyList, originList) {
     // 拼接执行操作
     htmlStr += `<td ${
       item.action === 'delete' ? 'style="color: red;font-weight: 600;"' : ''
-    }>${item.action || 'rename'}</td>`
+    }>${item.action === 'delete' ? '删除节点' : '重命名' || '重命名'}</td>`
     // 拼接是否重复
     htmlStr += `<td>${isRepeat(item.name, item.action, repeatName)}</td></tr>`
   })

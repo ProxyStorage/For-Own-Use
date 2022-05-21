@@ -7,10 +7,18 @@
     <title>rename重命名预览 | Sub-Store</title>
     <link rel="stylesheet" href="./index.css" />
     <script src="https://cdn.staticfile.org/jquery/1.9.0/jquery.min.js"></script>
+
+    <script src="https://unpkg.com/coco-modal/coco-modal.min.js"></script>
+    <style>
+      .coco-modal {
+        max-width: 500px;
+        width: auto;
+      }
+    </style>
   </head>
   <body>
     <section>
-      <h1>命名在线测试</h1>
+      <h1>命名在线测试（点我修改设置）</h1>
       <div class="tbl-header">
         <table cellpadding="0" cellspacing="0" border="0">
           <thead>
@@ -47,6 +55,13 @@
           rel="noopener noreferrer"
           >Github</a
         >
+        |
+        <a
+          href="https://github.com/ProxyStorage/For-Own-Use#%E8%8A%82%E7%82%B9%E9%87%8D%E5%91%BD%E5%90%8D"
+          target="_blank"
+          rel="noopener noreferrer"
+          >食用说明书</a
+        >
       </span>
     </div>
     <div class="made-with-love">
@@ -56,42 +71,97 @@
         DreamyTZK
       </a>
     </div>
+    <div id="setting" style="display: none">
+      <div>
+        <label>输出模板设置</label>
+        <input
+          class="coco-input"
+          id="template"
+          placeholder="输出模板"
+          value="{flag}「{airport}」{location} {modified} {number}"
+        />
+      </div>
+      <div>
+        <label>地区设置</label>
+        <select class="coco-input" name="location" id="location">
+          <option value=""></option>
+          <option value="zh">中文</option>
+          <option value="enShort">英文简称</option>
+          <option value="enFull">英文全称</option>
+        </select>
+      </div>
+      <div>
+        <label>修饰符设置</label>
+        <select class="coco-input" name="modified" id="modified">
+          <option value=""></option>
+          <option value="zh">中文</option>
+          <option value="enShort">英文简称</option>
+          <option value="enFull">英文全称</option>
+        </select>
+      </div>
+    </div>
     <!-- <script src="https://unpkg.com/proxy-script/substore/rename.js"></script> -->
     <script src="./dist/substore/rename.js"></script>
     <script src="./airport.js"></script>
     <script src="./index.js"></script>
     <script>
-      $arguments = { airport: 'Flower', test: true }
-      const flowerResult = operator(flowerList)
-      $arguments.airport = 'Texon'
-      const TexonResult = operator(texonList)
-      $arguments.airport = 'PS'
-      const PSResult = operator(pinkSeasonList)
-      $arguments.airport = 'MoJie'
-      const MojieList = operator(mojieList)
-      $arguments.airport = 'GLC'
-      const GLCResult = operator(glcList)
-      $arguments.airport = 'Ytoo'
-      const YtooResult = operator(ytooList)
-      $arguments.airport = 'PrPr'
-      const PrprResult = operator(prprList)
-      $arguments.airport = 'YiYuan'
-      const YiYuanResult = operator(yiyuanList)
-      $arguments.airport = 'Test'
-      const TestResult = operator(testList)
+      function load() {
+        $arguments = {
+          template: $('#template').val(),
+          location: $('#location').val(),
+          modified: $('#modified').val(),
+          test: true
+        }
+        $arguments.airport = 'Flower'
+        const flowerResult = operator(JSON.parse(JSON.stringify(flowerList)))
+        $arguments.airport = 'Texon'
+        const TexonResult = operator(JSON.parse(JSON.stringify(texonList)))
+        $arguments.airport = 'PS'
+        const PSResult = operator(JSON.parse(JSON.stringify(pinkSeasonList)))
+        $arguments.airport = 'MoJie'
+        const MojieList = operator(JSON.parse(JSON.stringify(mojieList)))
+        $arguments.airport = 'GLC'
+        const GLCResult = operator(JSON.parse(JSON.stringify(glcList)))
+        $arguments.airport = 'Ytoo'
+        const YtooResult = operator(JSON.parse(JSON.stringify(ytooList)))
+        $arguments.airport = 'PrPr'
+        const PrprResult = operator(JSON.parse(JSON.stringify(prprList)))
+        $arguments.airport = 'YiYuan'
+        const YiYuanResult = operator(JSON.parse(JSON.stringify(yiyuanList)))
+        $arguments.airport = 'Test'
+        const TestResult = operator(JSON.parse(JSON.stringify(testList)))
+        $arguments.airport = 'Tag'
+        const TagResult = operator(JSON.parse(JSON.stringify(tagList)))
 
-      const tableStr = generateTable([
-        ...TestResult,
-        ...flowerResult,
-        ...TexonResult,
-        ...PSResult,
-        ...MojieList,
-        ...GLCResult,
-        ...YtooResult,
-        ...PrprResult,
-        ...YiYuanResult
-      ])
-      $('.tbl-content tbody').html(tableStr)
+        const tableStr = generateTable([
+          ...TestResult,
+          ...flowerResult,
+          ...TexonResult,
+          ...PSResult,
+          ...MojieList,
+          ...GLCResult,
+          ...YtooResult,
+          ...PrprResult,
+          ...YiYuanResult,
+          ...TagResult
+        ])
+        $('.tbl-content tbody').html(tableStr)
+      }
+
+      load()
+      document.querySelector('h1').addEventListener('click', function () {
+        coco({
+          title: '输出配置',
+          el: '#setting'
+        }).onClose((isOk, cc, done) => {
+          if (isOk) {
+            load()
+            done()
+          } else {
+            done()
+          }
+        })
+      })
     </script>
   </body>
 </html>

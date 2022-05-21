@@ -5,8 +5,7 @@ import { ActionObject } from './location'
  * @param str 查找的字符串
  */
 export function getNum(str: string) {
-  const reg = /([0-9]\d*\.?\d*)|(0\.\d*[0-9])$/
-
+  const reg = /([0-9]\d*\.?\d*x?)|(0\.\d*[0-9])x?$/i
   const result = reg.exec(str)
   return result ? result[0] : ''
 }
@@ -25,7 +24,12 @@ export interface ReanmeObject {
  * @param actionObject 重命名配置对象
  * @returns {{location:number,modified:number}} 返回地区和修饰的索引
  */
-export function reName(str: string, actionObject: ActionObject) {
+export function reName(
+  str: string,
+  actionObject: ActionObject,
+  location?: 'enShort' | 'enFull' | 'zh' | undefined,
+  modified?: 'enShort' | 'enFull' | 'zh' | undefined
+) {
   const returnResult: ReanmeObject = {
     origin: str,
     location: str,
@@ -47,15 +51,24 @@ export function reName(str: string, actionObject: ActionObject) {
   for (let i = 0; i < locationList.length; i++) {
     const locationReg = new RegExp(locationList[i].reg, 'gi')
     if (locationReg.test(str)) {
-      returnResult.location = locationList[i].custom || locationList[i].enFull
-      returnResult.flag = locationList[i].flag || ''
+      if (['enShort', 'enFull', 'zh'].includes(location)) {
+        returnResult.location = locationList[i][location]
+      } else {
+        returnResult.location = locationList[i].custom || locationList[i].enFull
+      }
+      returnResult.flag = locationList[i].flag || '🏴‍☠️'
       break
     }
   }
   for (let i = 0; i < modifiedList.length; i++) {
     const modifiedReg = new RegExp(modifiedList[i].reg, 'gi')
     if (modifiedReg.test(str)) {
-      returnResult.modified = modifiedList[i].custom || modifiedList[i].enShort
+      if (['enShort', 'enFull', 'zh'].includes(modified)) {
+        returnResult.modified = modifiedList[i][modified]
+      } else {
+        returnResult.modified =
+          modifiedList[i].custom || modifiedList[i].enShort
+      }
       if (returnResult.action !== 'rename') {
         returnResult.action = modifiedList[i].action
       }
