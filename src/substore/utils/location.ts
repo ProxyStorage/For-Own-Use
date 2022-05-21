@@ -947,11 +947,83 @@ const modifiedList: ModifiedList[] = [
     action: 'rename'
   },
   {
+    zh: '购物',
+    enShort: 'Shop',
+    enFull: 'Shoping',
+    custom: 'Shop',
+    reg: '购物',
+    action: 'rename'
+  },
+  {
     zh: 'Premium',
     enShort: 'Pre',
     enFull: 'Premium',
     custom: 'Premium',
     reg: 'Premium',
+    action: 'rename'
+  },
+  {
+    zh: '直连',
+    enShort: 'Direct',
+    enFull: 'Direct',
+    custom: 'Direct',
+    reg: '直连',
+    action: 'rename'
+  },
+  {
+    zh: '沪日',
+    enShort: 'SH',
+    enFull: 'SH-Japan',
+    custom: 'Shanghai',
+    reg: '沪日',
+    action: 'rename'
+  },
+  {
+    zh: '沪韩',
+    enShort: 'SH',
+    enFull: 'SH-Korea',
+    custom: 'Shanghai',
+    reg: '沪韩',
+    action: 'rename'
+  },
+  {
+    zh: '沪美',
+    enShort: 'SH',
+    enFull: 'SH-United States',
+    custom: 'Shanghai',
+    reg: '沪美',
+    action: 'rename'
+  },
+  {
+    zh: '广港',
+    enShort: 'GZ',
+    enFull: 'GZ-Hong Kong',
+    custom: 'Guang',
+    reg: '广港',
+    action: 'rename'
+  },
+  {
+    zh: '广新',
+    enShort: 'GZ',
+    enFull: 'GZ-Singapore',
+    custom: 'Guang',
+    reg: '广新',
+    action: 'rename'
+  },
+  {
+    zh: '深港',
+    enShort: 'SZ',
+    enFull: 'SZ-Hong Kong',
+    custom: 'Shen',
+    reg: '深港',
+    action: 'rename'
+  },
+  {
+    zh: '莞港',
+    enShort: 'DG',
+    enFull: 'DG-Hong Kong',
+    custom: 'Wan',
+    reg: '莞港',
     action: 'rename'
   },
   {
