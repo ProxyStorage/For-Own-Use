@@ -40,7 +40,7 @@ jobs:
         run: |
           mv config dist
           mv package.json dist
-          mv readme.md dist
+          mv README.md dist
           cd dist
           npm publish
         env:

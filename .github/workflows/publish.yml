@@ -35,7 +35,7 @@ jobs:
       - name: Build
         run: |
           pnpm run build
-          mv readme.md html
+          mv README.md html
           mv dist html
 
       - name: pages
