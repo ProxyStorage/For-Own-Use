@@ -26,7 +26,7 @@ export default {
     'src/substore/common/fingerprint.ts'
   ], // 打包入口
   output: {
-    dir: 'dist/substore/',
+    dir: NODE_ENV === 'production' ? 'dist/substore/' : 'html/dist/substore',
     strict: false,
     exports: 'none'
   },
