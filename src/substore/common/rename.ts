@@ -1,4 +1,4 @@
-import { getNum, reName } from '../utils/index'
+import { getNum, ReanmeObject, reName } from '../utils/index'
 import { actionObject } from '../utils/location'
 /**
  * 节点重命名
@@ -41,11 +41,8 @@ function operator(proxies: BaseProxy[]) {
       }
       number = counter[reResult.location]
     }
-    const proxyName = `${reResult.flag}${
-      airport ? '「' + airport + '」' : ''
-    } ${reResult.location} ${reResult.modified} ${
-      reResult.origin === reResult.location ? '' : number
-    }`
+
+    const proxyName = getProxyName(reResult, number, airport)
 
     if (nameMap[proxyName]) {
       nameMap[proxyName] += 1
@@ -63,4 +60,23 @@ function operator(proxies: BaseProxy[]) {
   } else {
     return resultList
   }
+}
+
+/**
+ * 获取节点名称
+ * @param reResult 重命名结果
+ * @param number 当前节点编号
+ * @param airport 当前节点所在机场
+ * @returns {string}
+ */
+function getProxyName(
+  reResult: ReanmeObject,
+  number: string,
+  airport?: string
+) {
+  const flag = reResult.flag ? reResult.flag : ''
+  const airportName = airport ? '「' + airport + '」' : ''
+  const locationName = reResult.location
+  const modifiedName = reResult.modified
+  return `${flag}${airportName} ${locationName} ${modifiedName} ${number}`
 }

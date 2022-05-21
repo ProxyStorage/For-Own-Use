@@ -11,7 +11,7 @@ export function getNum(str: string) {
   return result ? result[0] : ''
 }
 
-interface ReanmeObject {
+export interface ReanmeObject {
   origin: string
   location: string
   modified: string
