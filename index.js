@@ -21,6 +21,7 @@ function isRepeat(name, action, repeatNameObj) {
 function generateTable(proxyList, originList) {
   let htmlStr = ''
   const repeatName = {}
+
   proxyList.forEach((item, index) => {
     if (repeatName[item.name]) {
       repeatName[item.name] += 1
@@ -28,7 +29,9 @@ function generateTable(proxyList, originList) {
       repeatName[item.name] = 1
     }
     // 拼接原名称
-    htmlStr += `<tr><td>${
+    htmlStr += `<tr><td>${item.airport || ''}</td>`
+    // 拼接原名称
+    htmlStr += `<td>${
       item.origin || (originList && originList[index].name) || ''
     }</td>`
     // 拼接新名称
