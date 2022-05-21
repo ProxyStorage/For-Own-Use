@@ -1,5 +1,5 @@
 // 花云机场节点 -> https://affman.vercel.app/flower
-const flowerList = [
+const flower = [
   { name: 'Traffic: 1.24 GB | 20 GB' },
   { name: 'Expire: 2023-04-10' },
   { name: '香港实验性 IEPL 中继 1' },
@@ -86,9 +86,11 @@ const flowerList = [
   { name: '巴西标准 IEPL 中继 1' },
   { name: '澳洲标准 IEPL 中继 1' }
 ]
-
+const flowerList = flower.map((item) => {
+  return { ...item, airport: 'FlowerCloud' }
+})
 // Texon机场节点 -> https://affman.vercel.app/texon
-const texonList = [
+const texon = [
   { name: '香港雞蛋仔 1' },
   { name: '香港燒鴨飯 2' },
   { name: '台灣豬血湯 1' },
@@ -100,9 +102,12 @@ const texonList = [
   { name: '美國甜甜圈 1' },
   { name: '美國法士達 2' }
 ]
+const texonList = texon.map((item) => {
+  return { ...item, airport: 'Texon' }
+})
 
 // pinkSeason -> https://affman.vercel.app/ps
-const pinkSeasonList = [
+const pinkSeason = [
   { name: '香港 - 海洋公园' },
   { name: '台湾 - 阿里山' },
   { name: '日本 - 秋叶原' },
@@ -110,9 +115,11 @@ const pinkSeasonList = [
   { name: '美国 - 金门大桥' },
   { name: '韩国 - 首尔塔' }
 ]
-
+const pinkSeasonList = pinkSeason.map((item) => {
+  return { ...item, airport: 'PinkSeason' }
+})
 // 魔戒 -> https://affman.vercel.app/mojie
-const mojieList = [
+const mojie = [
   { name: '日本-智能' },
   { name: '日本-优化2' },
   { name: '日本-优化' },
@@ -179,9 +186,11 @@ const mojieList = [
   { name: '墨西哥-优化3' },
   { name: '墨西哥-优化2' }
 ]
-
+const mojieList = mojie.map((item) => {
+  return { ...item, airport: '魔戒' }
+})
 // 果粒橙
-const glcList = [
+const glc = [
   { name: '香港HKT' },
   { name: '官网:guolicheng.cc' },
   { name: 'TG: https://t.me/Goguolichengo' },
@@ -208,8 +217,11 @@ const glcList = [
   { name: 'Oracle日本东京-1号' },
   { name: 'Oracle日本东京-广移负载均衡双线聚合 | 解流媒体' }
 ]
+const glcList = glc.map((item) => {
+  return { ...item, airport: '果粒橙' }
+})
 // ytoo
-const ytooList = [
+const ytoo = [
   { name: 'Traffic:79.69 GB 600 GB' },
   { name: 'Expire:-0001-11-30' },
   { name: '实验专线香港[0.2]' },
@@ -278,9 +290,11 @@ const ytooList = [
   { name: '购物专线土耳其[3.0]' },
   { name: '购物专线俄罗斯[3.0]' }
 ]
-
+const ytooList = ytoo.map((item) => {
+  return { ...item, airport: 'YTOO' }
+})
 // prpr https://affman.vercel.app/prpr
-const prprList = [
+const prpr = [
   { name: '懒人节点01' },
   { name: '香港01' },
   { name: '香港02' },
@@ -327,8 +341,11 @@ const prprList = [
   { name: '澳门01' },
   { name: '澳洲01' }
 ]
+const prprList = prpr.map((item) => {
+  return { ...item, airport: 'PRPR' }
+})
 // 一元机场
-const yiyuanList = [
+const yiyuan = [
   { name: '若无法使用请更新订阅' },
   { name: '加群 @yyjc_group 签到送流量' },
   { name: '🇭🇰香港 01 | 广港 IEPL' },
@@ -351,7 +368,13 @@ const yiyuanList = [
   { name: '🇯🇵日本 03 | 直连' },
   { name: '🇯🇵日本 04 | 直连' }
 ]
-const testList = [{ name: 'Hong Kong LB（Load Balanced）' }]
+const yiyuanList = yiyuan.map((item) => {
+  return { ...item, airport: '一元机场' }
+})
+const test = [{ name: 'Hong Kong LB（Load Balanced）' }]
+const testList = test.map((item) => {
+  return { ...item, airport: '虚拟测试' }
+})
 const originList = [
   ...testList,
   ...flowerList,

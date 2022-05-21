@@ -15,6 +15,7 @@
         <table cellpadding="0" cellspacing="0" border="0">
           <thead>
             <tr>
+              <th>机场名称</th>
               <th>原名称</th>
               <th>新名称</th>
               <th>执行操作</th>
@@ -55,11 +56,12 @@
         `使用脚本：<a target="_blank" href="https://raw.githubusercontent.com/futurkk/Potato/main/Rename/rename.js">futurkk/Potato</a> | <a target="_blank" href="https://github.com/futurkk/Potato">Github</a>`
       )
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/futurkk/Potato@master/Rename/rename.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/futurkk/Potato@master/Rename/rename.js"></script>
     <script src="./index.js"></script>
     <script>
       const result = operator(JSON.parse(JSON.stringify(originList)))
-      const tableStr = generateTable([...result], originList)
+      console.log('result', result)
+      const tableStr = generateTable(result, originList)
       $('.tbl-content tbody').html(tableStr)
     </script>
   </body>

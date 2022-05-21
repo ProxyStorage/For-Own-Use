@@ -35,9 +35,6 @@ jobs:
       - name: Build
         run: |
           pnpm run build
-
-      - name: Build
-        run: |
           mv config dist
           mv package.json dist
           mv README.md dist
