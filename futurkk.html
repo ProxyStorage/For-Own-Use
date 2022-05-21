@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rename重命名预览 | Sub-Store</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="https://cdn.staticfile.org/jquery/1.9.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <section>
+      <h1>命名在线测试-Potato</h1>
+      <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <thead>
+            <tr>
+              <th>原名称</th>
+              <th>新名称</th>
+              <th>执行操作</th>
+              <th>是否重复</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- follow me template -->
+    <div class="setting-info">
+      <span class="setting-info-input"></span>
+      <span class="setting-info-output"></span>
+      <span class="setting-info-script"></span>
+    </div>
+    <div class="made-with-love">
+      Made with
+      <i>♥</i> by
+      <a rel="noopener" target="_blank" href="https://t.me/connet_kk_bot">
+        DreamyTZK
+      </a>
+    </div>
+    <script src="./airport.js"></script>
+    <script>
+      console.log(flowerList)
+      const originList = [
+        ...testList,
+        ...flowerList,
+        ...texonList,
+        ...pinkSeasonList,
+        ...mojieList,
+        ...glcList,
+        ...ytooList,
+        ...prprList
+      ]
+      $arguments = {
+        input: 'zh',
+        output: 'enFull'
+      }
+      $('.setting-info-input').text('当前输入：' + $arguments.input)
+      $('.setting-info-output').text('当前输出：' + $arguments.output)
+      $('.setting-info-script').html(
+        `使用脚本：<a target="_blank" href="https://raw.githubusercontent.com/futurkk/Potato/main/Rename/rename.js">futurkk/Potato</a> | <a target="_blank" href="https://github.com/futurkk/Potato">Github</a>`
+      )
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/futurkk/Potato@master/Rename/rename.js"></script>
+    <script src="./index.js"></script>
+    <script>
+      const result = operator(JSON.parse(JSON.stringify(originList)))
+      const tableStr = generateTable([...result], originList)
+      $('.tbl-content tbody').html(tableStr)
+    </script>
+  </body>
+</html>
