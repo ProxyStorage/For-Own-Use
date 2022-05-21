@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rename重命名预览 | Sub-Store</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="https://cdn.staticfile.org/jquery/1.9.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <section>
+      <h1>命名在线测试</h1>
+      <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <thead>
+            <tr>
+              <th>原名称</th>
+              <th>新名称</th>
+              <th>执行操作</th>
+              <th>是否重复</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="setting-info">
+      <span class="setting-info-script">
+        <a
+          href="https://unpkg.com/proxy-script/substore/rename.js"
+          target="_blank"
+          rel="noopener"
+        >
+          查看引用脚本
+        </a>
+        |
+        <a
+          href="https://github.com/ProxyStorage/For-Own-Use"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Github</a
+        >
+      </span>
+    </div>
+    <div class="made-with-love">
+      Made with
+      <i>♥</i> by
+      <a rel="noopener" target="_blank" href="https://t.me/connet_kk_bot">
+        DreamyTZK
+      </a>
+    </div>
+    <script src="https://unpkg.com/proxy-script/substore/rename.js"></script>
+    <script src="./airport.js"></script>
+    <script src="./index.js"></script>
+    <script>
+      $arguments = { airport: 'Flower', test: true }
+      const flowerResult = operator(flowerList)
+      $arguments.airport = 'Texon'
+      const TexonResult = operator(texonList)
+      $arguments.airport = 'PS'
+      const PSResult = operator(pinkSeasonList)
+      $arguments.airport = 'MoJie'
+      const MojieList = operator(mojieList)
+      $arguments.airport = 'GLC'
+      const GLCResult = operator(glcList)
+      $arguments.airport = 'Ytoo'
+      const YtooResult = operator(ytooList)
+      $arguments.airport = 'PrPr'
+      const PrprResult = operator(prprList)
+      $arguments.airport = 'Test'
+      const TestResult = operator(testList)
+
+      const tableStr = generateTable([
+        ...TestResult,
+        ...flowerResult,
+        ...TexonResult,
+        ...PSResult,
+        ...MojieList,
+        ...GLCResult,
+        ...YtooResult,
+        ...PrprResult
+      ])
+      $('.tbl-content tbody').html(tableStr)
+    </script>
+  </body>
+</html>
