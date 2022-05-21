@@ -508,7 +508,12 @@ const tag = [
 const tagList = tag.map((item) => {
   return { ...item, airport: 'TAG' }
 })
-const test = [{ name: 'Hong Kong LB（Load Balanced）' }]
+const test = [
+  { name: 'Hong Kong LB（Load Balanced）' },
+  { name: '香港测试01 | 1.2倍率' },
+  { name: '香港测试01 | 1倍率' },
+  { name: '香港测试01 | 0.1倍率' }
+]
 const testList = test.map((item) => {
   return { ...item, airport: '虚拟测试' }
 })

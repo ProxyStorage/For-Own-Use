@@ -112,6 +112,8 @@
           modified: $('#modified').val(),
           test: true
         }
+        $arguments.airport = 'Test'
+        const TestResult = operator(JSON.parse(JSON.stringify(testList)))
         $arguments.airport = 'Flower'
         const flowerResult = operator(JSON.parse(JSON.stringify(flowerList)))
         $arguments.airport = 'Texon'
@@ -128,8 +130,7 @@
         const PrprResult = operator(JSON.parse(JSON.stringify(prprList)))
         $arguments.airport = 'YiYuan'
         const YiYuanResult = operator(JSON.parse(JSON.stringify(yiyuanList)))
-        $arguments.airport = 'Test'
-        const TestResult = operator(JSON.parse(JSON.stringify(testList)))
+
         $arguments.airport = 'Tag'
         const TagResult = operator(JSON.parse(JSON.stringify(tagList)))
 
