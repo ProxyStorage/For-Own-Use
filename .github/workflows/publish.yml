@@ -45,7 +45,7 @@ jobs:
       - name: 部署页面
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
-          branch: master
+          branch: gh-pages
           folder: html
           clean: false
           # clean-exclude: .nojekyll
