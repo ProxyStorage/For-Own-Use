@@ -2,7 +2,7 @@ name: Build
 
 on:
   push:
-    branches: [master]
+    branches: [release]
 
 jobs:
   build:
@@ -42,6 +42,15 @@ jobs:
           branch: gh-pages
           folder: html
           clean: false
+
+      - name: Build
+        run: |
+          mv config dist
+          mv package.json dist
+          cd dist
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
