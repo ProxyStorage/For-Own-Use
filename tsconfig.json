@@ -18,5 +18,5 @@
   },
   "outDir": "dist",
 
-  "include": ["./src/**/*", "./type/**/*"]
+  "include": ["./src/**/*", "./type/**/*", "test"]
 }

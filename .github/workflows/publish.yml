@@ -41,3 +41,14 @@ jobs:
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: 部署页面
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: master
+          folder: html
+          clean: false
+          # clean-exclude: .nojekyll
+          #   .ssh
+          #   .git
+          # ssh-key: ${{ secrets.DEPLOY_KEY }}

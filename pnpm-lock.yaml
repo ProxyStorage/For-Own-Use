@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/node': ^17.0.35
   cross-env: ^7.0.3
   rollup: ^2.73.0
   rollup-plugin-commonjs: ^10.1.0
@@ -11,6 +12,7 @@ specifiers:
   typescript: ^4.6.4
 
 devDependencies:
+  '@types/node': registry.npmmirror.com/@types/node/17.0.35
   cross-env: registry.npmmirror.com/cross-env/7.0.3
   rollup: registry.npmmirror.com/rollup/2.73.0
   rollup-plugin-commonjs: registry.npmmirror.com/rollup-plugin-commonjs/10.1.0_rollup@2.73.0
@@ -27,7 +29,7 @@ packages:
     name: '@types/resolve'
     version: 0.0.8
     dependencies:
-      '@types/node': registry.npmmirror.com/@types/node/17.0.34
+      '@types/node': registry.npmmirror.com/@types/node/17.0.35
     dev: true
 
   registry.npmmirror.com/@babel/code-frame/7.16.7:
@@ -63,10 +65,10 @@ packages:
     version: 0.0.51
     dev: true
 
-  registry.npmmirror.com/@types/node/17.0.34:
-    resolution: {integrity: sha512-XImEz7XwTvDBtzlTnm8YvMqGW/ErMWBsKZ+hMTvnDIjGCKxwK5Xpc+c/oQjOauwq8M4OS11hEkpjX8rrI/eEgA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-17.0.34.tgz}
+  registry.npmmirror.com/@types/node/17.0.35:
+    resolution: {integrity: sha512-vu1SrqBjbbZ3J6vwY17jBs8Sr/BKA+/a/WtjRG+whKg1iuLFOosq872EXS0eXWILdO36DHQQeku/ZcL6hz2fpg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-17.0.35.tgz}
     name: '@types/node'
-    version: 17.0.34
+    version: 17.0.35
     dev: true
 
   registry.npmmirror.com/acorn/8.7.1:
@@ -237,7 +239,7 @@ packages:
     version: 26.6.2
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': registry.npmmirror.com/@types/node/17.0.34
+      '@types/node': registry.npmmirror.com/@types/node/17.0.35
       merge-stream: registry.npmmirror.com/merge-stream/2.0.0
       supports-color: registry.npmmirror.com/supports-color/7.2.0
     dev: true

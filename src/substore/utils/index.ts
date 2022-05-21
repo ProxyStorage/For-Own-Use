@@ -5,12 +5,14 @@ import { ActionObject } from './location'
  * @param str 查找的字符串
  */
 export function getNum(str: string) {
-  const reg = /\d+$/
+  const reg = /([0-9]\d*\.?\d*)|(0\.\d*[0-9])$/
+
   const result = reg.exec(str)
   return result ? result[0] : ''
 }
 
 interface ReanmeObject {
+  origin: string
   location: string
   modified: string
   action: 'rename' | 'delete'
@@ -25,12 +27,23 @@ interface ReanmeObject {
  */
 export function reName(str: string, actionObject: ActionObject) {
   const returnResult: ReanmeObject = {
+    origin: str,
     location: str,
     modified: '',
     action: 'rename',
     flag: ''
   }
-  const { locationList, modifiedList } = actionObject
+  const { locationList, modifiedList, deleteList } = actionObject
+
+  for (let i = 0; i < deleteList.length; i++) {
+    const modifiedReg = new RegExp(deleteList[i].reg, 'gi')
+    if (modifiedReg.test(str)) {
+      returnResult.modified = deleteList[i].enShort
+      returnResult.action = 'delete'
+      break
+    }
+  }
+
   for (let i = 0; i < locationList.length; i++) {
     const locationReg = new RegExp(locationList[i].reg, 'gi')
     if (locationReg.test(str)) {
@@ -42,9 +55,10 @@ export function reName(str: string, actionObject: ActionObject) {
   for (let i = 0; i < modifiedList.length; i++) {
     const modifiedReg = new RegExp(modifiedList[i].reg, 'gi')
     if (modifiedReg.test(str)) {
-      returnResult.modified = modifiedList[i].enShort
-      returnResult.action = modifiedList[i].action
-
+      returnResult.modified = modifiedList[i].custom || modifiedList[i].enShort
+      if (returnResult.action !== 'rename') {
+        returnResult.action = modifiedList[i].action
+      }
       break
     }
   }

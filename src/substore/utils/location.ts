@@ -30,11 +30,21 @@ export interface ModifiedList extends LocationList {
    */
   action: 'rename' | 'delete'
 }
+export interface DeleteList extends LocationList {}
 export interface ActionObject {
   locationList: LocationList[]
   modifiedList: ModifiedList[]
+  deleteList: DeleteList[]
 }
 const locationList: LocationList[] = [
+  {
+    zh: '懒人节点',
+    enShort: 'lazy',
+    enFull: 'lazy person',
+    reg: '懒人',
+    custom: 'lazy',
+    flag: '🏴‍☠️'
+  },
   {
     zh: '香港',
     enShort: 'HK',
@@ -163,7 +173,6 @@ const locationList: LocationList[] = [
     reg: 'BH|Bahrain|BH|巴林',
     flag: '🇧🇭'
   },
-  { zh: '孟加拉国', enShort: 'BD', enFull: 'Bangladesh', reg: 'BD|Bangladesh' },
 
   {
     zh: '比利时',
@@ -177,13 +186,7 @@ const locationList: LocationList[] = [
   { zh: '不丹', enShort: 'BT', enFull: 'Bhutan', reg: 'BT|Bhutan' },
   { zh: '玻利维亚', enShort: 'BO', enFull: 'Bolivia', reg: 'BO|Bolivia' },
   {
-    zh: '波斯尼亚和黑塞哥维那',
-    enShort: 'BA',
-    enFull: 'Bosnia and Herzegovina',
-    reg: 'BA|Bosnia and Herzegovina'
-  },
-  {
-    zh: '波黑共和国',
+    zh: '波黑',
     enShort: 'BA',
     enFull: 'Bosnia and Herzegovina',
     reg: 'BA|Bosnia and Herzegovina|波黑共和国|波黑',
@@ -307,7 +310,8 @@ const locationList: LocationList[] = [
     zh: '捷克共和国',
     enShort: 'CZ',
     enFull: 'Czech Republic',
-    reg: 'CZ|Czech Republic'
+    reg: 'CZ|Czech Republic|Czechia|捷克',
+    flag: '🇨🇿'
   },
   {
     zh: '丹麦',
@@ -412,13 +416,6 @@ const locationList: LocationList[] = [
   },
   {
     zh: '印度尼西亚',
-    enShort: 'ID',
-    enFull: 'Indonesia',
-    reg: 'ID|Indonesia|Indonesia|印尼|印度尼西亚|雅加达',
-    flag: '🇮🇩'
-  },
-  {
-    zh: '印尼',
     enShort: 'ID',
     enFull: 'Indonesia',
     reg: 'ID|Indonesia|Indonesia|印尼|印度尼西亚|雅加达',
@@ -843,16 +840,10 @@ const locationList: LocationList[] = [
     flag: '🇺🇦'
   },
   {
-    zh: '阿拉伯联合酋长国',
-    enShort: 'AE',
-    enFull: 'United Arab Emirates',
-    reg: 'AE|United Arab Emirates'
-  },
-  {
     zh: '阿联酋',
     enShort: 'AE',
     enFull: 'United Arab Emirates',
-    reg: 'AE|United Arab Emirates|United Arab Emirates|阿联酋|迪拜|AE',
+    reg: 'AE|United Arab Emirates|United Arab Emirates|阿联酋|迪拜|阿联酉|阿拉伯联合酋长国',
     flag: '🇦🇪'
   },
   {
@@ -894,49 +885,13 @@ const locationList: LocationList[] = [
   { zh: '赞比亚', enShort: 'ZM', enFull: 'Zambia', reg: 'ZM|Zambia' },
   { zh: '津巴布韦', enShort: 'ZW', enFull: 'Zimbabwe', reg: 'ZW|Zimbabwe' },
   {
-    zh: '孟加拉',
+    zh: '孟加拉国',
     enShort: 'BD',
     enFull: 'Bangladesh',
     reg: 'BD|Bangladesh|BD|孟加拉',
     flag: '🇧🇩'
   },
-  {
-    zh: '捷克',
-    enShort: 'CZ',
-    enFull: 'Czech Republic',
-    reg: 'CZ|Czech Republic|Czechia|捷克',
-    flag: '🇨🇿'
-  },
 
-  {
-    zh: '东京',
-    enShort: 'Tokyo',
-    enFull: 'Tokyo',
-    reg: 'Tokyo|Tokyo|JP|Japan|JAPAN|日本|东京|大阪|埼玉|沪日|穗日|川日|中日|泉日|杭日|深日|辽日|广日|大坂|Osaka|Tokyo',
-    flag: '🇯🇵'
-  },
-
-  {
-    zh: '洛杉矶',
-    enShort: 'Los Angeles',
-    enFull: 'Los Angeles',
-    reg: 'Los Angeles|Los Angeles|US|USA|America|United States|美国|美|京美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|矽谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|沪美|哥伦布|纽约|Los Angeles|San Jose|Sillicon Valley|Michigan',
-    flag: '🇺🇸'
-  },
-  {
-    zh: '圣何塞',
-    enShort: 'San Jose',
-    enFull: 'San Jose',
-    reg: 'San Jose|San Jose|US|USA|America|United States|美国|美|京美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|矽谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|沪美|哥伦布|纽约|Los Angeles|San Jose|Sillicon Valley|Michigan',
-    flag: '🇺🇸'
-  },
-  {
-    zh: '硅谷',
-    enShort: 'Silicon Valley',
-    enFull: 'Silicon Valley',
-    reg: 'Silicon Valley|Silicon Valley|US|USA|America|United States|美国|美|京美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|矽谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|沪美|哥伦布|纽约|Los Angeles|San Jose|Sillicon Valley|Michigan',
-    flag: '🇺🇸'
-  },
   {
     zh: '密歇根',
     enShort: 'Michigan',
@@ -963,23 +918,48 @@ const locationList: LocationList[] = [
     enFull: 'Zurich',
     reg: 'Zurich|Zurich|瑞士|苏黎世|Switzerland|Zurich',
     flag: '🇨🇭'
-  },
-  {
-    zh: '莫斯科',
-    enShort: 'Moscow',
-    enFull: 'Moscow',
-    reg: 'Moscow|Moscow|RU|Russia|俄罗斯|俄国|俄羅斯|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|京俄|杭俄|廣俄|滬俄|广俄|沪俄|Moscow',
-    flag: '🇷🇺'
   }
 ]
 
 const modifiedList: ModifiedList[] = [
+  {
+    zh: '实验',
+    enShort: 'EXP',
+    enFull: 'EXP',
+    custom: 'EXP',
+    reg: '实验',
+    action: 'rename'
+  },
+  {
+    zh: '标准',
+    enShort: 'STD',
+    enFull: 'STD',
+    custom: 'STD',
+    reg: '标准',
+    action: 'rename'
+  },
+  {
+    zh: '高级',
+    enShort: 'PRO',
+    enFull: 'PRO',
+    custom: 'PRO',
+    reg: '高级',
+    action: 'rename'
+  },
   {
     zh: 'Premium',
     enShort: 'Pre',
     enFull: 'Premium',
     custom: 'Premium',
     reg: 'Premium',
+    action: 'rename'
+  },
+  {
+    zh: '负载均衡',
+    enShort: 'LB',
+    enFull: 'Load Balanced',
+    custom: 'LB',
+    reg: 'Load Balanced|LB',
     action: 'rename'
   },
   {
@@ -1006,30 +986,7 @@ const modifiedList: ModifiedList[] = [
     reg: '边缘',
     action: 'rename'
   },
-  {
-    zh: '高级',
-    enShort: 'PRO',
-    enFull: 'PRO',
-    custom: 'PRO',
-    reg: '高级',
-    action: 'rename'
-  },
-  {
-    zh: '标准',
-    enShort: 'STD',
-    enFull: 'STD',
-    custom: 'STD',
-    reg: '标准',
-    action: 'rename'
-  },
-  {
-    zh: '实验',
-    enShort: 'EXP',
-    enFull: 'EXP',
-    custom: 'EXP',
-    reg: '实验',
-    action: 'rename'
-  },
+
   {
     zh: '商宽',
     enShort: 'BIZ',
@@ -1047,15 +1004,25 @@ const modifiedList: ModifiedList[] = [
     action: 'rename'
   },
   {
+    zh: '流媒体',
+    enShort: 'Stream',
+    enFull: 'Stream',
+    custom: 'Stream',
+    reg: 'stream|懒人',
+    action: 'rename'
+  }
+]
+export const deleteList: DeleteList[] = [
+  {
     zh: '无用节点',
     enFull: '',
     enShort: '',
-    reg: '过期|流量|时间|应急|expire|traffic|更新|测速',
-    action: 'delete'
+    reg: '过期|流量|时间|应急|expire|traffic|更新|测速|官网|http'
   }
 ]
 
 export const actionObject: ActionObject = {
   locationList,
-  modifiedList
+  modifiedList,
+  deleteList
 }
