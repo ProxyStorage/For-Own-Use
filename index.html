@@ -124,6 +124,8 @@
         }
         $arguments.airport = 'Test'
         const TestResult = operator(JSON.parse(JSON.stringify(testList)))
+        $arguments.airport = 'Netease'
+        const NeteaseResult = operator(JSON.parse(JSON.stringify(neteaseList)))
         $arguments.airport = 'Flower'
         const flowerResult = operator(JSON.parse(JSON.stringify(flowerList)))
         $arguments.airport = 'Texon'
@@ -146,6 +148,7 @@
 
         const tableStr = generateTable([
           ...TestResult,
+          ...NeteaseResult,
           ...flowerResult,
           ...TexonResult,
           ...PSResult,
