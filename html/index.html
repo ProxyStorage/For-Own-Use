@@ -40,22 +40,25 @@
     </section>
 
     <div class="setting-info">
+      <span class="setting-info-script version"> </span>
       <span class="setting-info-script">
         <a
           href="https://unpkg.com/proxy-script/substore/rename.js"
           target="_blank"
           rel="noopener"
         >
-          查看引用脚本
+          最新脚本
         </a>
-        |
+      </span>
+      <span class="setting-info-script">
         <a
           href="https://github.com/ProxyStorage/For-Own-Use"
           target="_blank"
           rel="noopener noreferrer"
           >Github</a
         >
-        |
+      </span>
+      <span class="setting-info-script">
         <a
           href="https://github.com/ProxyStorage/For-Own-Use#%E8%8A%82%E7%82%B9%E9%87%8D%E5%91%BD%E5%90%8D"
           target="_blank"
@@ -80,6 +83,13 @@
           placeholder="输出模板"
           value="{flag}「{airport}」{location} {modified} {number}"
         />
+        <div class="tips">
+          <span>{flag}:国旗 | </span>
+          <span>{airport}:机场名 | </span>
+          <span>{location}:地区名 | </span>
+          <span>{modified}:修饰符 | </span>
+          <span>{number}:节点序号（原名称的序号）</span>
+        </div>
       </div>
       <div>
         <label>地区设置</label>
@@ -148,8 +158,16 @@
         ])
         $('.tbl-content tbody').html(tableStr)
       }
-
+      async function getVersion() {
+        const result = await $.get('package.json')
+        if (result.version) {
+          $('.version').html(
+            `<a href="https://unpkg.com/proxy-script@${result.version}/substore/rename.js" target="_blank" rel="noopener">当前版本号@${result.version}</a>`
+          )
+        }
+      }
       load()
+      getVersion()
       document.querySelector('h1').addEventListener('click', function () {
         coco({
           title: '输出配置',

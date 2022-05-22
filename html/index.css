@@ -1,11 +1,12 @@
 h1 {
-  font-size: 30px;
+  font-size: 26px;
   color: #fff;
   text-transform: uppercase;
   font-weight: 300;
   text-align: center;
   margin-bottom: 15px;
   cursor: pointer;
+  word-break: keep-all;
 }
 table {
   width: 100%;
@@ -86,6 +87,9 @@ a {
   text-decoration: none;
   color: #fff;
 }
+.setting-info-script:not(:last-child) ::after {
+  content: ' | ';
+}
 /* for custom scrollbar for webkit browser*/
 
 ::-webkit-scrollbar {
@@ -106,4 +110,11 @@ a {
 }
 .items-center {
   align-items: center;
+}
+
+.coco-input {
+  margin-bottom: 5px;
+}
+.tips > span {
+  font-size: 10px;
 }

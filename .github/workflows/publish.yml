@@ -36,6 +36,7 @@ jobs:
         run: |
           pnpm run build
           mv README.md html
+          mv package.json html
           mv dist html
 
       - name: pages
