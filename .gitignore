@@ -2,3 +2,4 @@ dist/
 node_modules/
 html/dist
 html/package.json
+.pnpm-debug.log

@@ -508,6 +508,23 @@ const tag = [
 const tagList = tag.map((item) => {
   return { ...item, airport: 'TAG' }
 })
+const netease = [
+  { name: 'NeteaseMusic Unlock 1' },
+  { name: 'NeteaseMusic Unlock 2' },
+  { name: 'NeteaseMusic Unlock 3' },
+  { name: 'NeteaseMusic Unlock 4' },
+  { name: 'NeteaseMusic Unlock 5' },
+  { name: 'NeteaseMusic Unlock 6' },
+  { name: 'NeteaseMusic Unlock 7' },
+  { name: 'Music 1' },
+  { name: 'Music 2' },
+  { name: 'Music 3' },
+  { name: 'Music 4' },
+  { name: 'Music 5' }
+]
+const neteaseList = netease.map((item) => {
+  return { ...item, airport: 'Netease' }
+})
 const test = [
   { name: 'Hong Kong LB（Load Balanced）' },
   { name: '香港测试01 | 1.2倍率' },
@@ -520,6 +537,7 @@ const testList = test.map((item) => {
 
 const originList = [
   ...testList,
+  ...neteaseList,
   ...flowerList,
   ...texonList,
   ...pinkSeasonList,

@@ -46,6 +46,14 @@ const locationList: LocationList[] = [
     flag: '🏴‍☠️'
   },
   {
+    zh: '网易云',
+    enShort: 'Netease',
+    enFull: 'Netease Unblock',
+    reg: 'Netease|unblock|unlock|music',
+    custom: 'Music',
+    flag: '🇨🇳'
+  },
+  {
     zh: '香港',
     enShort: 'HK',
     enFull: 'Hong Kong',
