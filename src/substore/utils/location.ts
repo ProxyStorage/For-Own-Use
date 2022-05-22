@@ -67,7 +67,8 @@ const locationList: LocationList[] = [
     enFull: 'Taiwan',
     reg: 'TW|Taiwan|TW|Taiwan|TAIWAN|台湾|台北|台中|新北|彰化|CHT|台|HINET|Taipei',
     custom: 'TW',
-    flag: '🇹🇼'
+    // flag: '🇹🇼',
+    flag: '🇨🇳'
   },
   {
     zh: '日本',

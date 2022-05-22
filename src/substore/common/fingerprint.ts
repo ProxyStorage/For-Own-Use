@@ -13,10 +13,17 @@ import fingerprint from '../utils/fingerprint'
  */
 // @ts-ignore
 function operator(proxies: TrojanType[], targetPlatform) {
+  /**
+   * airport 参数（键）不区分大小写，即传入 Flower、flower、FLOWER都是等效的
+   */
   // @ts-ignore
   const { airport, custom } = $arguments
-  if (!fingerprint[airport] && !custom) return proxies
-
+  if (!airport && !custom) return proxies
+  Object.keys(fingerprint).forEach((key) => {
+    fingerprint[transformKey(key)] = fingerprint[key]
+  })
+  const airportName = transformKey(airport)
+  if (!fingerprint[airportName]) return proxies
   return proxies.map((proxy) => {
     proxy = addFingerprint(
       proxy,
@@ -55,4 +62,8 @@ function addFingerprint(
     }
   }
   return proxy
+}
+
+function transformKey(key: string) {
+  return key.toLowerCase()
 }
