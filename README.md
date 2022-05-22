@@ -108,15 +108,17 @@
 
    |   参数    |  示例值  |                             说明                             |
    | :-------: | :------: | :----------------------------------------------------------: |
-   | `airport` | `flower` | [fingerprint.ts](https://github.com/ProxyStorage/For-Own-Use/blob/master/src/substore/utils/fingerprint.ts)脚本中定义的键 |
+   | `airport` | `flower` | [fingerprint.ts](https://github.com/ProxyStorage/For-Own-Use/blob/master/src/substore/utils/fingerprint.ts)脚本中定义的键(不区分大小写)<br />即传入 `Flower`、`flower`、`FLOWER`都是等效的 |
    | `custom`  | `xxxxx`  |         如果脚本中无内置证书，则传入此参数自定义证书         |
 
    - 示例1：使用内置指纹（花云）
 
      `https://unpkg.com/proxy-script/substore/fingerprint.js#airport=flower`
 
-   - 示例2：使用自定义指纹
+     `https://unpkg.com/proxy-script/substore/fingerprint.js#airport=Flower`
 
+   - 示例2：使用自定义指纹
+   
      `https://unpkg.com/proxy-script/substore/fingerprint.js#custom=bbc820c1848bab9d41457c1cdf0c0f7a1eed6e21f7ed5e67359b158cc7fe4cb4`
 
 ## 关于更新
