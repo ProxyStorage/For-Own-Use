@@ -7,7 +7,7 @@ import { ActionObject } from './location'
 export function getNum(str: string) {
   // const reg = /([0-9]\d*\.?\d*x?)|(0\.\d*[0-9])x?$/i
   // const result = reg.exec(str)
-  const reg = /([0-9]\d*\.?\d*(x|倍|×)?)|(0\.\d*[0-9])(x|倍|×)??$/gi
+  const reg = /(v?[0-9]\d*\.?\d*(x|倍|×)?)|(0\.\d*[0-9])(x|倍|×)??$/gi
   const result = str.match(reg) || []
   const replaceList = ['1倍率', '1倍', '1x', '1X', '1×']
   replaceList.forEach((replaceStr) => {
