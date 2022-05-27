@@ -72,8 +72,8 @@
    | `airport`  |                      `Flower`                       |                        用于标识该机场                        |
    |   `test`   |                       `false`                       |            如果你不是在开发脚本，则可以忽略此参数            |
    | `template` | `{flag}「{airport}」{location} {modified} {number}` | 节点名称渲染模板。示例渲染的结果为：`国旗 +「机场名」 + 地区 + 修饰 + 编号` |
-   | `location` |                        `zh`                         | 地区名输出格式，可选择参数`zh`|`enFull`|`enShort`<br />如果不传入则优先使用`custom`字段（如无则使用`enFull`） |
-   | `modified` |                        `zh`                         | 修饰符（例如标准、高级等）输出格式，可选择参数`zh`|`enFull`|`enShort`<br />如果不传入则优先使用`custom`字段（如无则使用`enShort`） |
+   | `location` |                        `zh`                         | 地区名输出格式，可选择参数`zh`、`enShort`、`enShortThree`、`enFull` |
+   | `modified` |                        `zh`                         | 修饰符（例如标准、高级等）输出格式，可选择参数`zh`、`enShort`、`enFull` |
    
    - 示例1：只标识机场名
    
@@ -82,6 +82,10 @@
    - 示例2：标识机场名 并 地区使用中文
    
      `https://unpkg.com/proxy-script/substore/rename.js#airport=flower&location=zh`
+     
+     示例3：标识机场名 并 地区使用三字母的简称
+     
+     `https://unpkg.com/proxy-script/substore/rename.js#airport=flower&location=enShortThree`
    
    <details> 
        <summary>更多自定义</summary> 

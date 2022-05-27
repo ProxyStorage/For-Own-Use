@@ -36,7 +36,7 @@ export interface ReanmeObject {
 export function reName(
   str: string,
   actionObject: ActionObject,
-  location?: 'enShort' | 'enFull' | 'zh' | undefined,
+  location?: 'enShort' | 'enFull' | 'zh' | 'enShortThree' | undefined,
   modified?: 'enShort' | 'enFull' | 'zh' | undefined
 ) {
   const returnResult: ReanmeObject = {
@@ -60,8 +60,9 @@ export function reName(
   for (let i = 0; i < locationList.length; i++) {
     const locationReg = new RegExp(locationList[i].reg, 'gi')
     if (locationReg.test(str)) {
-      if (['enShort', 'enFull', 'zh'].includes(location)) {
-        returnResult.location = locationList[i][location]
+      if (['enShort', 'enFull', 'zh', 'enShortThree'].includes(location)) {
+        returnResult.location =
+          locationList[i][location] || locationList[i]['enShort']
       } else {
         returnResult.location = locationList[i].custom || locationList[i].enFull
       }
