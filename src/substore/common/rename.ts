@@ -15,7 +15,7 @@ function operator(proxies: BaseProxy[]) {
    * airport 机场名
    * test 是否是测试模式（用于浏览器环境）
    * template 修改为节点名的模板 默认为 {flag}「{airport}」{location} {modified} {number} 即 国旗 +「机场名」 + 地区 + 修饰 + 编号
-   * location 地区输出的格式 默认为 使用custom字段（无此字段则使用enFull） ,可选参数 enShort,enFull,zh
+   * location 地区输出的格式 默认为 使用custom字段（无此字段则使用enFull） ,可选参数 enShort,enShortThree,enFull,zh
    * modified 修饰（标准、高级等）输出的格式 默认为 使用custom字段（无此字段则使用enShort） ,可选参数 enShort,enFull,zh
    */
   const {
