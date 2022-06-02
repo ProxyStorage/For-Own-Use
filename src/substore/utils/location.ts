@@ -1011,7 +1011,7 @@ const locationList: LocationList[] = [
     zh: '尼日利亚',
     enShort: 'NG',
     enFull: 'Nigeria',
-    reg: 'NG|Nigeria|尼日利亚|NG|尼日利亞',
+    reg: 'NG|Nigeria|尼日利亚|NG|尼日利亞|拉各斯',
     flag: '🇳🇬',
     enShortThree: 'NGA'
   },
