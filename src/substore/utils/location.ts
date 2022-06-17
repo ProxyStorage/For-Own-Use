@@ -521,11 +521,20 @@ const locationList: LocationList[] = [
     enShortThree: 'GNQ'
   },
   {
+    zh: '荷兰',
+    enShort: 'NL',
+    enFull: 'Netherlands',
+    reg: 'Netherlands|NL|荷兰|荷蘭|尼德蘭|阿姆斯特丹',
+    flag: '🇳🇱',
+    enShortThree: 'NLD'
+  },
+  {
     zh: '厄立特里亚',
     enShort: 'ER',
     enFull: 'Eritrea',
-    reg: 'ER|Eritrea',
-    enShortThree: 'ERI'
+    reg: 'Eritrea',
+    enShortThree: 'ERI',
+    flag: '🇪🇷'
   },
   {
     zh: '爱沙尼亚',
@@ -976,14 +985,6 @@ const locationList: LocationList[] = [
     reg: 'NP|Nepal|尼泊尔',
     flag: '🇳🇵',
     enShortThree: 'NPL'
-  },
-  {
-    zh: '荷兰',
-    enShort: 'NL',
-    enFull: 'Netherlands',
-    reg: 'NL|Netherlands|NL|Netherlands|荷兰|荷蘭|尼德蘭|阿姆斯特丹',
-    flag: '🇳🇱',
-    enShortThree: 'NLD'
   },
   {
     zh: '新西兰',
