@@ -10,5 +10,6 @@ export default {
   dler: '46 e9 c5 a8 34 a9 d4 75 2d f3 95 aa 6d a6 ce 06 d4 a1 84 36 5b f2 14 14 90 1a 5a 53 0c d9 02 1a',
   nexitally:
     'fd:65:e5:8d:9c:c4:fa:7e:c8:65:6a:cc:93:2a:49:a5:97:d6:04:46:5f:3a:9e:75:3d:5b:dc:5c:ce:51:77:28',
-  ytoo: 'bbc820c1848bab9d41457c1cdf0c0f7a1eed6e21f7ed5e67359b158cc7fe4cb4'
+  ytoo: 'bbc820c1848bab9d41457c1cdf0c0f7a1eed6e21f7ed5e67359b158cc7fe4cb4',
+  west: 'F2:92:C2:80:9D:02:B6:11:42:E2:D9:9D:63:73:AE:07:83:EB:F3:DA:34:C5:AB:97:F2:E5:94:70:8E:EC:13:49'
 }
