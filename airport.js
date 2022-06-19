@@ -525,6 +525,22 @@ const netease = [
 const neteaseList = netease.map((item) => {
   return { ...item, airport: 'Netease' }
 })
+
+const emoVpn = [
+  {
+    name: '「🇭🇰」天星城 x1'
+  },
+  {
+    name: '「🇭🇰」水晶梨 x3'
+  },
+  {
+    name: '「🇸🇬」翠玉梨 - 免流 x3'
+  }
+]
+const emoVpnList = emoVpn.map((item) => {
+  return { ...item, airport: 'emovpn' }
+})
+
 const test = [
   { name: 'Hong Kong LB（Load Balanced）' },
   { name: '香港测试01 | 1.2倍率' },
@@ -542,6 +558,7 @@ const testList = test.map((item) => {
 })
 
 const originList = [
+  ...emoVpnList,
   ...testList,
   ...neteaseList,
   ...flowerList,
