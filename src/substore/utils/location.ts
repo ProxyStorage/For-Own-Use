@@ -28,6 +28,10 @@ export interface LocationList {
    * 国旗
    */
   flag?: string
+  /**
+   * 匹配时是否忽略国旗
+   */
+  ignoreFlag?: boolean
 }
 export interface ModifiedList extends LocationList {
   /**
@@ -49,7 +53,8 @@ const locationList: LocationList[] = [
     reg: '懒人',
     custom: 'lazy',
     flag: '🏴‍☠️',
-    enShortThree: ''
+    enShortThree: '',
+    ignoreFlag: true
   },
   {
     zh: '网易云',
@@ -58,7 +63,8 @@ const locationList: LocationList[] = [
     reg: 'Netease|unblock|unlock|music',
     custom: 'Music',
     flag: '🇨🇳',
-    enShortThree: ''
+    enShortThree: '',
+    ignoreFlag: true
   },
   {
     zh: '香港',
@@ -68,15 +74,6 @@ const locationList: LocationList[] = [
     custom: 'HK',
     flag: '🇭🇰',
     enShortThree: 'HKG'
-  },
-  {
-    zh: '澳门',
-    enShort: 'MO',
-    enFull: 'Macao',
-    reg: 'MO|Macao|MO|Macao|澳门|澳門|CTM',
-    custom: 'MO',
-    flag: '🇲🇴',
-    enShortThree: 'MAC'
   },
   {
     zh: '台湾',
@@ -115,19 +112,28 @@ const locationList: LocationList[] = [
     enShortThree: 'SGP'
   },
   {
-    zh: '密歇根',
-    enShort: 'Michigan',
-    enFull: 'Michigan',
-    reg: 'Michigan|Michigan',
+    zh: '美国',
+    enShort: 'US',
+    enFull: 'United States',
+    reg: 'US|United States|US|USA|America|United States|美国|美|京美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|矽谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|沪美|哥伦布|纽约|Los Angeles|San Jose|Sillicon Valley',
     custom: 'US',
     flag: '🇺🇸',
     enShortThree: 'USA'
   },
   {
-    zh: '美国',
-    enShort: 'US',
-    enFull: 'United States',
-    reg: 'US|United States|US|USA|America|United States|美国|美|京美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|矽谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|沪美|哥伦布|纽约|Los Angeles|San Jose|Sillicon Valley',
+    zh: '澳门',
+    enShort: 'MO',
+    enFull: 'Macao',
+    reg: 'MO|Macao|MO|Macao|澳门|澳門|CTM',
+    custom: 'MO',
+    flag: '🇲🇴',
+    enShortThree: 'MAC'
+  },
+  {
+    zh: '密歇根',
+    enShort: 'Michigan',
+    enFull: 'Michigan',
+    reg: 'Michigan|Michigan',
     custom: 'US',
     flag: '🇺🇸',
     enShortThree: 'USA'
@@ -1639,7 +1645,7 @@ export const deleteList: DeleteList[] = [
     zh: '无用节点',
     enFull: '',
     enShort: '',
-    reg: '过期|流量|时间|应急|expire|traffic|更新|测速|官网|http'
+    reg: '过期|流量|时间|应急|expire|traffic|更新|测速|官网|http|加入'
   }
 ]
 

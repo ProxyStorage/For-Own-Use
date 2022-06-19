@@ -59,9 +59,10 @@ export function reName(
   }
 
   for (let i = 0; i < locationList.length; i++) {
-    let regString = locationList[i].flag
-      ? `${locationList[i].flag}|${locationList[i].reg}`
-      : locationList[i].reg
+    let regString =
+      locationList[i].flag && !locationList[i].ignoreFlag
+        ? `${locationList[i].flag}|${locationList[i].reg}`
+        : locationList[i].reg
     const locationReg = new RegExp(regString, 'gi')
     if (locationReg.test(str)) {
       if (['enShort', 'enFull', 'zh', 'enShortThree'].includes(location)) {
