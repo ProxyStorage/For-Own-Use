@@ -608,6 +608,7 @@ const locationList: LocationList[] = [
     enShort: 'GL',
     enFull: 'Greenland',
     reg: 'GL|Greenland',
+    flag: '🇬🇱',
     enShortThree: 'GRL'
   },
   {
