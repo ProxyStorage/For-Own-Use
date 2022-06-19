@@ -1504,6 +1504,14 @@ const modifiedList: ModifiedList[] = [
     action: 'rename'
   },
   {
+    zh: '免流',
+    enShort: 'Free',
+    enFull: 'Free Flow',
+    custom: '免流',
+    reg: '免流',
+    action: 'rename'
+  },
+  {
     zh: '直连',
     enShort: 'Direct',
     enFull: 'Direct',
