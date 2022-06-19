@@ -20,7 +20,7 @@ export function getNum(str: string) {
   return result.join(' ').replace('倍', 'x')
 }
 
-export interface ReanmeObject {
+export interface RenameObject {
   origin: string
   location: string
   modified: string
@@ -40,7 +40,7 @@ export function reName(
   location?: 'enShort' | 'enFull' | 'zh' | 'enShortThree' | undefined,
   modified?: 'enShort' | 'enFull' | 'zh' | undefined
 ) {
-  const returnResult: ReanmeObject = {
+  const returnResult: RenameObject = {
     origin: str,
     location: str,
     modified: '',
