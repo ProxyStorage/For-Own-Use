@@ -554,7 +554,7 @@ const locationList: LocationList[] = [
     zh: '埃塞俄比亚',
     enShort: 'ET',
     enFull: 'Ethiopia',
-    reg: 'ET|Ethiopia',
+    reg: 'Ethiopia',
     enShortThree: 'ETH'
   },
   {

@@ -1,4 +1,4 @@
-import { getNum, ReanmeObject, reName } from '../utils/index'
+import { getNum, RenameObject, reName } from '../utils/index'
 import { actionObject } from '../utils/location'
 /**
  * 节点重命名
@@ -79,7 +79,7 @@ function operator(proxies: BaseProxy[]) {
  */
 function getProxyName(
   proxyTemplate: string,
-  reResult: ReanmeObject,
+  reResult: RenameObject,
   number: string,
   airport?: string
 ) {
