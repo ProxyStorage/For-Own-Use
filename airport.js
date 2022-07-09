@@ -612,7 +612,8 @@ const test = [
   {
     name: '直连-80端口免流-V342-1x-台湾(内置爱奇艺定向免流host,可自行修改host)'
   },
-  { name: '普通-V321-0.6x-香港-NF' }
+  { name: '普通-V321-0.6x-香港-NF' },
+  { name: '马来西亚TMnet01|优选原生IP|1x' }
 ]
 const testList = test.map((item) => {
   return { ...item, airport: '虚拟测试' }
