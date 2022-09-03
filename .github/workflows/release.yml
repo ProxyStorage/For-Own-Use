@@ -36,6 +36,7 @@ jobs:
         run: |
           pnpm run build
           mv config dist
+          mv script dist
           mv package.json dist
           mv README.md dist
           cd dist
