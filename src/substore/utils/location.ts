@@ -1645,7 +1645,7 @@ export const deleteList: DeleteList[] = [
     zh: '无用节点',
     enFull: '',
     enShort: '',
-    reg: '过期|邀请|订阅|时间|应急|expire|traffic|更新|测速|官网|http|加入'
+    reg: '过期|邀请|订阅|时间|应急|expire|traffic|更新|测速|官网|http|加入|剩余|流量|套餐|到期'
   }
 ]
 
