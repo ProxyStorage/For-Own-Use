@@ -87,12 +87,15 @@ function getProxyName(
   const airportName = airport || ''
   const locationName = reResult.location || ''
   const modifiedName = reResult.modified || ''
+  const originName = reResult.origin || ''
 
   proxyTemplate = proxyTemplate.replace(/\{airport\}/g, airportName)
   proxyTemplate = proxyTemplate.replace(/\{flag\}/g, flag)
   proxyTemplate = proxyTemplate.replace(/\{location\}/g, locationName)
   proxyTemplate = proxyTemplate.replace(/\{modified\}/g, modifiedName)
   proxyTemplate = proxyTemplate.replace(/\{number\}/g, number)
+  proxyTemplate = proxyTemplate.replace(/\{origin\}/g, originName)
+
   return proxyTemplate
   // return `${flag}${airportName} ${locationName} ${modifiedName} ${number}`
 }
