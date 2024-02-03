@@ -1,5 +1,7 @@
 ## 说明
 
+!!! 如果你想像pro一样来生成配置，那么可以试试[rule_generate_template](https://github.com/ProxyStorage/rule_generate_template)
+
 [此仓库](https://github.com/ProxyStorage/For-Own-Use)用于存储我个人日常使用的代理工具（Surge、QuantumultX、Loon）配置以及相关涉及到的脚本和规则。
 
 其中配置与脚本无特殊说明均来自于其他大佬，这里不做一一列举（~~因为大多数已经找不到出处了~~）。
